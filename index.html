@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrimonio nelle Religioni</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background: #444;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: block;
+        }
+        nav ul li a:hover {
+            background: #555;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+        }
+        .content h2 {
+            color: #333;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .search-bar input {
+            padding: 10px;
+            width: 80%;
+            max-width: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Il Senso del Matrimonio nelle Religioni</h1>
+        <nav>
+            <ul>
+                <li><a href="#islam" onclick="showSection('islam')">Islam</a></li>
+                <li><a href="#ebraismo" onclick="showSection('ebraismo')">Ebraismo</a></li>
+                <li><a href="#induismo" onclick="showSection('induismo')">Induismo</a></li>
+                <li><a href="#buddismo" onclick="showSection('buddismo')">Buddismo</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="search-bar">
+        <input type="text" id="search" placeholder="Cerca nel sito..." onkeyup="searchText()">
+    </div>
+    <main>
+        <section id="islam" class="content">
+            <h2>Islam</h2>
+            <p>Nel Islam, il matrimonio (Nikah) è un contratto sacro tra uomo e donna, basato su mutuo consenso e diritti. È considerato un atto religioso e sociale di grande importanza, che prevede obblighi morali e finanziari.</p>
+        </section>
+        <section id="ebraismo" class="content">
+            <h2>Ebraismo</h2>
+            <p>Nell'Ebraismo, il matrimonio (Kiddushin) è un'istituzione sacra che unisce due persone nella vita e nella fede. Comprende due fasi: Kiddushin (fidanzamento) e Nissuin (unione effettiva). Il contratto matrimoniale, la Ketubah, stabilisce i doveri del marito verso la moglie.</p>
+        </section>
+        <section id="induismo" class="content">
+            <h2>Induismo</h2>
+            <p>Secondo l'Induismo, il matrimonio è un sacramento (Sanskara) che unisce gli sposi per il dharma, artha e kama. È una delle tappe fondamentali della vita (Ashrama) ed è spesso accompagnato da rituali complessi, tra cui il Saptapadi, i sette passi intorno al fuoco sacro.</p>
+        </section>
+        <section id="buddismo" class="content">
+            <h2>Buddismo</h2>
+            <p>Nel Buddismo, il matrimonio è un contratto civile, non un sacramento, e si basa su amore e rispetto reciproco. Non vi sono rituali religiosi obbligatori, ma molte comunità buddiste seguono tradizioni locali che incorporano benedizioni da parte dei monaci.</p>
+        </section>
+    </main>
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.content').forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(id).style.display = 'block';
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            showSection('islam');
+        });
+
+        function searchText() {
+            let input = document.getElementById("search").value.toLowerCase();
+            document.querySelectorAll(".content").forEach(section => {
+                let text = section.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
